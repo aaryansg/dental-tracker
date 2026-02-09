@@ -1,0 +1,18 @@
+[deploy]
+startCommand = "python app.py"
+
+[[env]]
+name = "FLASK_ENV"
+value = "production"
+
+[[env]]
+name = "PORT"
+value = "5000"
+
+[[env]]
+name = "SECRET_KEY"
+value = "change-this-in-production-to-a-secure-random-key"
+
+[[env]]
+name = "DATABASE_URL"
+value = "sqlite:///oral_health.db"

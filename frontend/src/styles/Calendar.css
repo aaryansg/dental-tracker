@@ -1,0 +1,587 @@
+/* Calendar Container */
+.calendar-container {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.calendar-header h1 {
+  font-size: 2rem;
+  color: #1f2937;
+  margin: 0;
+}
+
+/* Header buttons container */
+.header-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+/* Danger button for destructive actions */
+.btn-danger {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-danger:hover {
+  background: linear-gradient(135deg, #b91c1c 0%, #991b1b 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+}
+
+/* Reminder Form */
+.reminder-form-card {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.reminder-form-card h2 {
+  margin: 0 0 1.5rem 0;
+  color: #1f2937;
+  font-size: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #374151;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+}
+
+.btn-secondary {
+  background: #f3f4f6;
+  color: #374151;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-secondary:hover {
+  background: #e5e7eb;
+}
+
+/* Calendar Grid */
+.calendar-grid-container {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.calendar-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.calendar-controls h2 {
+  margin: 0;
+  color: #1f2937;
+  font-size: 1.5rem;
+}
+
+.calendar-controls button {
+  background: #4f46e5;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.calendar-controls button:hover {
+  background: #4338ca;
+}
+
+.calendar-nav-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.calendar-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.calendar-weekdays div {
+  text-align: center;
+  font-weight: 600;
+  color: #6b7280;
+  padding: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+
+.calendar-day {
+  aspect-ratio: 1;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 0.5rem;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+  min-height: 80px;
+  display: flex;
+  flex-direction: column;
+}
+
+.calendar-day:hover {
+  background: #f9fafb;
+  border-color: #4f46e5;
+}
+
+.calendar-day.empty {
+  background: #f9fafb;
+  cursor: default;
+  border: 1px solid #f3f4f6;
+}
+
+.calendar-day.empty:hover {
+  background: #f9fafb;
+  border-color: #f3f4f6;
+}
+
+.calendar-day.today {
+  background: #eef2ff;
+  border-color: #4f46e5;
+  font-weight: 600;
+}
+
+.day-number {
+  font-size: 0.875rem;
+  color: #374151;
+}
+
+.day-reminders {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 0.5rem;
+}
+
+.reminder-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.reminder-dot.appointment {
+  background: #4f46e5;
+}
+
+.reminder-dot.medication {
+  background: #10b981;
+}
+
+.reminder-dot.completed {
+  opacity: 0.4;
+}
+
+/* Reminders Section */
+.reminders-section {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.reminders-section h2 {
+  margin: 0 0 1.5rem 0;
+  color: #1f2937;
+  font-size: 1.5rem;
+}
+
+.no-reminders {
+  text-align: center;
+  color: #9ca3af;
+  padding: 2rem;
+  font-size: 1.1rem;
+}
+
+.reminders-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.reminder-card {
+  border-radius: 12px;
+  padding: 1.5rem;
+  border-left: 4px solid;
+  background: #f9fafb;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.reminder-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.reminder-card.appointment {
+  border-left-color: #4f46e5;
+}
+
+.reminder-card.medication {
+  border-left-color: #10b981;
+}
+
+.reminder-card.completed {
+  opacity: 0.6;
+  background: #f3f4f6;
+}
+
+.reminder-header {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.reminder-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.reminder-info {
+  flex: 1;
+}
+
+.reminder-info h3 {
+  margin: 0 0 0.5rem 0;
+  color: #1f2937;
+  font-size: 1.125rem;
+}
+
+.reminder-date {
+  color: #6b7280;
+  margin: 0 0 0.5rem 0;
+  font-size: 0.875rem;
+}
+
+.reminder-description {
+  color: #4b5563;
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+.reminder-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.reminder-actions button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.reminder-actions button:hover {
+  transform: translateY(-1px);
+  opacity: 0.9;
+}
+
+.btn-complete {
+  background: #10b981;
+  color: white;
+}
+
+.btn-edit {
+  background: #f59e0b;
+  color: white;
+}
+
+.btn-delete {
+  background: #ef4444;
+  color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .calendar-container {
+    padding: 1rem;
+    overflow-x: hidden;
+  }
+
+  .calendar-header {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .calendar-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .header-buttons {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .header-buttons button {
+    flex: 1;
+    min-width: 120px;
+  }
+
+  .calendar-grid-container {
+    padding: 1rem;
+    overflow-x: auto;
+    max-width: 100%;
+  }
+
+  .calendar-grid {
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .reminder-form-card,
+  .reminders-section {
+    padding: 1rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .calendar-controls {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .calendar-controls h2 {
+    font-size: 1rem;
+    text-align: center;
+    flex: 1;
+  }
+
+  .calendar-controls button {
+    padding: 0.3rem 0.7rem;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+
+  .calendar-weekdays {
+    gap: 1px;
+  }
+
+  .calendar-weekdays div {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.1rem;
+  }
+
+  .calendar-days {
+    gap: 1px;
+  }
+
+  .calendar-day {
+    min-height: 45px;
+    aspect-ratio: auto;
+    padding: 0.15rem;
+    font-size: 0.65rem;
+  }
+
+  .day-number {
+    font-size: 0.65rem;
+  }
+
+  .day-reminders {
+    gap: 2px;
+    margin-top: 0.25rem;
+  }
+
+  .reminder-dot {
+    width: 6px;
+    height: 6px;
+  }
+
+  .reminder-card {
+    padding: 1rem;
+  }
+
+  .reminder-icon {
+    font-size: 1.5rem;
+  }
+
+  .reminder-actions {
+    flex-direction: column;
+  }
+
+  .reminder-actions button {
+    width: 100%;
+  }
+
+  /* Prevent horizontal scroll */
+  .calendar-grid {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Make modal more mobile friendly */
+  .modal-content {
+    width: 95%;
+    max-height: 90vh;
+  }
+
+  .modal-header h2 {
+    font-size: 1rem;
+  }
+}
+
+/* Daily Reminder Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 12px;
+  padding: 0;
+  max-width: 600px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  animation: slideIn 0.2s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #1f2937;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #6b7280;
+  padding: 0.5rem;
+  line-height: 1;
+  transition: color 0.2s;
+}
+
+.modal-close:hover {
+  color: #1f2937;
+}
+
+.modal-body {
+  padding: 1.5rem;
+}
