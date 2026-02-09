@@ -24,10 +24,6 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# Build outputs
-news-frontend/dist/
-news-frontend/build/
-
 # IDE
 .vscode/
 .idea/
